@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+
+<HEAD>
+
+<TITLE>Adobe ELC Price Override Maintenance Update Page</TITLE>
+
+<META NAME="GENERATOR" CONTENT="Mozilla/3.0Gold (Win95; I) [Netscape]">
+
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Hide script from non-aware browsers
+
+////////////////////////////////////////////////////////////////////////////
+// General Purpose Functions
+
+function decimalize(q)
+{
+    var b = "" + Math.round(q*100)
+    if (b > 0) {
+        var c = b.substring(0, b.length - 2)
+        var d = b.substring(b.length - 2, b.length)
+    }
+    else {
+        var c = "0"
+        var d = "00"
+    }
+    return (c + "." + d)
+}
+
+////////////////////////////////////////////////////////////////////////////
+// Show an alert message about a data problem (validated by the server)
+
+function doAlert()
+{
+    var errormsg = "^^errormsg^^"
+    var errorfld = "^^errorfld^^"
+    var errorfrm = "^^errorfrm^^"
+
+    if (errormsg) {
+        alert(errormsg)
+    }
+
+    if (errorfld) {
+        eval("document[\"" + errorfrm + "\"][\"" +
+            errorfrm + "_" + errorfld + "\"].focus()")
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////
+// Format decimal fields
+function decimalFormat(field)
+{
+    var number
+
+    number = field.value
+    if (true) {
+        field.value = decimalize(field.value)
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////
+// Check required fields
+
+function checkRequired(formName)
+{
+    var prefix = formName + "_"
+    var field
+    var statement
+
+    field = "document[\"" + formName + "\"][\"" +
+        prefix + "dt_begin" + "\"]"
+    if (! eval(field + ".value"))
+    {
+        alert ("You must enter a beginning date/time.")
+        eval(field + ".focus()")
+        return false
+    }
+
+    field = "document[\"" + formName + "\"][\"" +
+        prefix + "dt_end" + "\"]"
+    if (! eval(field + ".value"))
+    {
+        alert ("You must enter an ending date/time.")
+        eval(field + ".focus()")
+        return false
+    }
+
+    field = "document[\"" + formName + "\"][\"" +
+        prefix + "sell_price" + "\"]"
+    if (! eval(field + ".value"))
+    {
+        alert ("You must enter a sell price.")
+        eval(field + ".focus()")
+        return false
+    }
+
+    return true
+}
+
+// Done hiding script from non-aware browsers -->
+
+</SCRIPT></HEAD>
+
+<BODY BGCOLOR="ffffff" ONLOAD="doAlert()">
+
+<CENTER><P><A href="/cgi-bin/partui.pl">Back to Lookup</A></P></CENTER>
+
+<CENTER><P><!-- Message Here --></P></CENTER>
+
+<H1 ALIGN=CENTER>Adobe ELC Price Override Maintenance Update Page</H1>
+
+<CENTER><TABLE BORDER=1 >
+
+<TR>
+<TD align="right">Item SKU:</TD>
+<TD>^^M0_item_sku^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Item Class:</TD>
+<TD>^^M0_item_class^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Serial Number Prefix Code:</TD>
+<TD>^^M0_prefix_c^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Product Code:</TD>
+<TD>^^M0_product_c^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Platform Code:</TD>
+<TD>^^M0_platform_c^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Version Code:</TD>
+<TD>^^M0_version_c^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Channel Code:</TD>
+<TD>^^M0_channel_c^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Item Name:</TD>
+<TD>^^M0_item_name^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Item URL:</TD>
+<TD><A HREF="^^M0_item_url^^">^^M0_item_url^^</A>&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Retail Price:</TD>
+<TD align="right">^^M0_retail_price^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Sell Price:</TD>
+<TD align="right">^^M0_sell_price^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Discount Rate:</TD>
+<TD align="right">^^M0_discount_rate^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Taxable Code:</TD>
+<TD>^^M0_taxable_c^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Register Product in Wizard?</TD>
+<TD>^^M0_reg_prod^^&nbsp;</TD>
+</TR>
+
+<TR>
+<TD align="right">Number of License Seats:</TD>
+<TD align="left">^^M0_num_seats^^&nbsp;</TD>
+<!-- the cell below is for IE 3.x bug (if absent,
+the data in the cell above appears centered)
+<TD></TD> -->
+</TR>
+
+</TABLE></CENTER>
+
+<CENTER><P></P></CENTER>
+
+<CENTER><TABLE BORDER=1 >
+
+<TR>
+
+<TH align="center">Begin Date/Time:</TH>
+
+<TH align="center">End Date/Time:</TH>
+
+<TH align="center">Sell Price:</TH>
+
+<TH></TH>
+
+</TR>
+
+<!-- active: name=A0 query="select item_sku, dt_begin, dt_end, retail_price, sell_price, discount_rate from part_override where item_sku = '^^M0_item_sku^^' order by dt_begin" repeat="on" -->
+
+<FORM action="/cgi-bin/partui.pl" method="POST" name="D%%A0_count%%"
+
+onSubmit="return checkRequired('D%%A0_count%%')">
+
+<TR>
+
+<TD align="left"><INPUT maxlength="30" name="D%%A0_count%%_dt_begin"
+
+size="19" type="text" value="%%A0_dt_begin%%"></TD>
+
+<TD align="left"><INPUT maxlength="30" name="D%%A0_count%%_dt_end"
+
+size="19" type="text" value="%%A0_dt_end%%"></TD>
+
+<TD align="right"><INPUT maxlength="13" name="D%%A0_count%%_sell_price"
+
+onChange="decimalFormat(this)" size="6" type="text" value="%%A0_sell_price%%"></TD>
+
+<TD align="center"><INPUT name="D%%A0_count%%_item_sku" type="hidden"
+
+value="%%A0_item_sku%%"><INPUT name="D%%A0_count%%_row_num" type="hidden"
+
+value="%%A0_count%%"><INPUT name="D%%A0_count%%_old_dt_begin" type="hidden"
+
+value="%%A0_dt_begin%%">
+
+<INPUT type="submit" value="Update">
+
+<INPUT name="D%%A0_count%%_action" type="hidden" value="update" >
+
+<INPUT NAME="D%%A0_count%%_tablename" TYPE="hidden" VALUE="part_override"></TD>
+
+</TR>
+
+</FORM>
+
+<!-- /active -->
+
+<FORM action="/cgi-bin/partui.pl" method="POST" name="D0"
+
+onSubmit="return checkRequired('D0')">
+
+<TR>
+
+<TD align="left"><INPUT maxlength="30" name="D0_dt_begin"
+
+size="19" type="text" value=""></TD>
+
+<TD align="left"><INPUT maxlength="30" name="D0_dt_end"
+
+size="19" type="text" value=""></TD>
+
+<TD align="right"><INPUT maxlength="13" name="D0_sell_price"
+
+onChange="decimalFormat(this)" size="6" type="text" value=""></TD>
+
+<TD align="center"><INPUT name="D0_item_sku" type="hidden" value="^^M0_item_sku^^">
+
+<INPUT type="submit" value=" Add ">
+
+<INPUT name="D0_action" type="hidden" value="insert" >
+
+<INPUT NAME="D0_tablename" TYPE="hidden" VALUE="part_override"></TD>
+
+</TR>
+
+</FORM>
+
+</TABLE></CENTER>
+
+</BODY>
+
+</HTML>
+

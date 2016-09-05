@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Adobe ELC Part Select Page</title>
+</head>
+<body bgcolor="ffffff">
+
+<CENTER><P><A href="/cgi-bin/partui.pl">Back to Lookup</A></P></CENTER>
+
+<center>
+
+<h1>Adobe ELC Part Select Page</h1>
+
+<p>The following ELC Part records were found:</p>
+
+<form action="/cgi-bin/partui.pl" method="POST">
+
+<table border="1">
+
+<!-- active: name=A0 query=cache repeat=on -->
+
+<tr><td align="left" valign="top">
+<input name="M0_item_sku" type="radio" value="%%A0_item_sku%%"> Edit
+Record %%A0_count%%: <!-- of %%A0_total%%: --> </td>
+
+<td align="left" valign="top"><strong>%%A0_item_name%%</strong></td>
+<td align="left" valign="top"><strong>%%A0_product_c%%</strong></td>
+<td align="left" valign="top"><strong>%%A0_platform_c%%</strong></td></tr>
+
+<tr><td colspan="3"></td></tr>
+
+<!-- /active -->
+
+</table>
+
+<p><INPUT NAME="M0_tablename" TYPE="hidden" VALUE="elc_part"></p>
+
+<p><input type="submit" value=" Select "></p>
+
+<p><input name="M0_action" type="hidden" value="select"></p>
+
+</form>
+
+<h3>New Lookup</h3>
+
+<P><FORM ACTION="/cgi-bin/partui.pl"
+METHOD="POST"></P>
+
+<TABLE BORDER="1">
+<TR>
+<TD align="right">SKU:</TD>
+<TD><INPUT maxlength="10" name="M0_item_sku" size="10" type="text"></TD>
+</TR>
+
+<TR>
+<TD align="right">Name:</TD>
+<TD><INPUT maxlength="50" name="M0_item_name_match" size="50" type="text"></TD>
+</TR>
+
+<TR>
+<TD align="right">Product:</TD>
+<TD><INPUT maxlength="8" name="M0_product_c" size="8" type="text"></TD>
+</TR>
+
+<TR>
+<TD align="right">Platform:</TD>
+<TD><INPUT maxlength="6" name="M0_platform_c" size="6" type="text"></TD>
+</TR>
+
+</TABLE>
+
+<P><INPUT NAME="M0_tablename" TYPE="hidden" VALUE="elc_part"></P>
+<P><input type="submit" value=" Lookup " ></P>
+<P><input name="M0_action" type="hidden" value="lookup"></P>
+<P></FORM></P>
+
+</center>
+
+</body>
+</html>
+
